@@ -66,16 +66,23 @@ end
     end
   end
 
-    describe(".search") do
-    it("returns the Album name and Artist name") do
-      test_album2 = Library.new({:album => "The White Album", :artist => "The Beatles"})
-      test_album2.save()
-      test_album = Library.new({:album => "Greatest Hits", :artist => "The Doors"})
-      test_album.save()
-      expect(Library.search("Greatest Hits")).to(eq([test_album.album(),test_album.artist()]))
-    end
+  describe(".search") do
+  it("returns the Album name and Artist name") do
+    test_album2 = Library.new({:album => "The White Album", :artist => "The Beatles"})
+    test_album2.save()
+    test_album = Library.new({:album => "Greatest Hits", :artist => "The Doors"})
+    test_album.save()
+    expect(Library.search("Greatest Hits")).to(eq([test_album.album(),test_album.artist()]))
   end
+end
 
-
-
+  # describe(".search") do
+  # it("returns the Album name and Artist name") do
+  #   test_album2 = Library.new({:album => "The White Album", :artist => "The Beatles"})
+  #   test_album2.save()
+  #   test_album = Library.new({:album => "Greatest Hits", :artist => "The Doors"})
+  #   test_album.save()
+  #   expect(Library.search("The Doors")).to(eq([test_album.album(),test_album.artist()]))
+  #   end
+  # end
 end

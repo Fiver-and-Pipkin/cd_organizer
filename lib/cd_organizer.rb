@@ -8,7 +8,8 @@ class Library
     @id = @@cds.length().+(1)
   end
 
-    define_method(:id) do
+
+  define_method(:id) do
     @id
   end
 
@@ -25,27 +26,24 @@ class Library
     @@cds.each() do |cd|
       if cd.id().eql?(identification.to_i())
         found_album = cd
+      end
+    end
+    found_album
+  end
+
+  sought_album = "album not found."
+  sought_artist = nil
+  searched_album = []
+  @@cds.each() do |record|
+    if record.album() == cd
+      sought_album = record.album()
+      sought_artist = record.artist()
     end
   end
-  found_album
-end
-
-    define_singleton_method(:search) do |cd|
-      sought_album = "album not found."
-      sought_artist = nil
-      searched_album = []
-        @@cds.each() do |record|
-          if record.album() == cd
-            sought_album = record.album()
-            sought_artist = record.artist()
-          end
-        end
-      searched_album = [sought_album, sought_artist]
-      searched_album
+    searched_album = [sought_album, sought_artist]
+    searched_album
   end
 
-    define_method(:save) do
+  define_method(:save) do
     @@cds.push(self)
   end
-
-end
